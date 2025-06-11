@@ -1,0 +1,1 @@
+📿 Stay connected with Islam daily! Get 🌞 Daily Sunnah & Hadith, read 📖 full Quran (Surah & Ayah-wise), and join 💬 a vibrant Islamic chat community. ✨ Simple, powerful, and spiritually uplifting. 🚀 More features coming soon. 🕌 Your all-in-one Islamic app for learning, sharing & growing in Deen.
