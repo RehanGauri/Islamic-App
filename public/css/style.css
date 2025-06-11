@@ -1,0 +1,202 @@
+:root {
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --card-bg: white;
+    --primary-color: #2c6e49;
+    --secondary-color: #4a7c59;
+    --golden: #d4af37;
+    --nav-bg: #ffffff;
+    --shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.dark-mode {
+    --bg-color: #121212;
+    --text-color: #d4af37;
+    --card-bg: #1e1e1e;
+    --primary-color: #4a7c59;
+    --secondary-color: #2c6e49;
+    --golden: #d4af37;
+    --nav-bg: #1a1a1a;
+    --shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 100%;
+    min-height: 100vh;
+    padding-bottom: 70px;
+    padding-top: 80px;
+    padding-left: 20px; /* Adjust this value as per your preference */
+    padding-right: 20px; /* Adjust this value as per your preference */
+
+}
+
+/* Top Navigation */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: var(--nav-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: var(--shadow);
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo h2 {
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.menu-btn {
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* Content */
+.content {
+    padding: 20px;
+    padding-left: 20px; /* Or adjust as needed */
+    padding-right: 20px; /* Or adjust as needed */    
+}
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow);
+}
+
+.card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: var(--nav-bg);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: var(--shadow);
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 12px;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.nav-item i {
+    font-size: 20px; /* This ensures the icon size */
+    margin-bottom: 3px;
+    /* The color of the icon will be inherited from .nav-item,
+       which gets its color from --text-color by default.
+       If you need a specific color for icons, you can add:
+       color: var(--text-color); here, but it's often redundant. */
+}
+
+.nav-item.active {
+    color: var(--primary-color); /* This overrides the color for active items */
+    font-weight: bold;
+}
+
+.nav-item img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 3px;
+}
+
+.nav-item.active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Arabic text */
+.arabic {
+    direction: rtl;
+    text-align: right;
+    font-size: 24px;
+    font-family: 'Traditional Arabic', 'Arial', sans-serif;
+}
+
+ul li{
+    margin-left: 10px;
+}

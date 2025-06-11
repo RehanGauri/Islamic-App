@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic App</title>
+    <style>
+        :root {
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --card-bg: white;
+            --primary-color: #2c6e49;
+            --secondary-color: #4a7c59;
+            --golden: #d4af37;
+            --nav-bg: #ffffff;
+            --shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #d4af37;
+            --card-bg: #1e1e1e;
+            --primary-color: #4a7c59;
+            --secondary-color: #2c6e49;
+            --golden: #d4af37;
+            --nav-bg: #1a1a1a;
+            --shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 100%;
+            min-height: 100vh;
+            padding-bottom: 70px; /* Space for bottom nav */
+            padding-top: 80px; /* Space for top nav */
+        }
+        
+        /* Top Navigation */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: var(--nav-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            box-shadow: var(--shadow);
+            z-index: 100;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h2 {
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+        
+        .profile-section {
+            display: flex;
+            align-items: center;
+        }
+        
+        .profile-pic {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+        
+        .menu-btn {
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        /* Content */
+        .content {
+            padding: 20px;
+            display: none;
+        }
+        
+        .content.active {
+            display: block;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: var(--nav-bg);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: var(--shadow);
+            z-index: 100;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 12px;
+            padding: 5px;
+        }
+        
+        .nav-item i {
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+        
+        .nav-item.active {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav">
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <div class="logo">
+            <img src="https://via.placeholder.com/40/2c6e49/ffffff?text=ISL" alt="Logo">
+            <h2>Islamic Guide</h2>
+        </div>
+        
+        <div class="profile-section">
+            <button class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="profile-pic">A</div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Sunnah & Hadith -->
+        <div class="content active" id="sunnah">
+            <h1>Sunnah & Hadith</h1>
+            <div class="card">
+                <h3>Daily Sunnah</h3>
+                <p>Prophet Muhammad (PBUH) said: "The most beloved of deeds to Allah are those that are most consistent, even if it is small." (Bukhari)</p>
+            </div>
+            <div class="card">
+                <h3>Hadith of the Day</h3>
+                <p>"Whoever believes in Allah and the Last Day, let him speak good or remain silent." (Bukhari & Muslim)</p>
+            </div>
+        </div>
+        
+        <!-- Quran Reading -->
+        <div class="content" id="quran">
+            <h1>Quran Tilawat</h1>
+            <div class="card">
+                <h3>Surah Al-Fatiha</h3>
+                <p style="direction: rtl; text-align: right; font-size: 24px;">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                <p>In the name of Allah, the Entirely Merciful, the Especially Merciful.</p>
+            </div>
+            <div class="card">
+                <h3>Surah Al-Ikhlas</h3>
+                <p style="direction: rtl; text-align: right; font-size: 24px;">قُلْ هُوَ اللَّهُ أَحَدٌ</p>
+                <p>Say, "He is Allah, [who is] One."</p>
+            </div>
+        </div>
+        
+        <!-- Ayats & Translation -->
+        <div class="content" id="ayats">
+            <h1>Ayats & Translation</h1>
+            <div class="card">
+                <h3>Ayatul Kursi</h3>
+                <p style="direction: rtl; text-align: right; font-size: 20px;">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ</p>
+                <p>Allah - there is no deity except Him, the Ever-Living, the Sustainer of existence.</p>
+            </div>
+        </div>
+        
+        <!-- Surahs -->
+        <div class="content" id="surahs">
+            <h1>Surahs</h1>
+            <div class="card">
+                <h3>List of Surahs</h3>
+                <ul>
+                    <li>Surah Al-Fatiha</li>
+                    <li>Surah Al-Baqarah</li>
+                    <li>Surah Al-Imran</li>
+                    <li>Surah An-Nisa</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Empty Section -->
+        <div class="content" id="empty">
+            <h1>Coming Soon</h1>
+            <div class="card">
+                <p>This section will be updated soon with new content.</p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="#" class="nav-item active" data-target="sunnah">
+            <i class="fas fa-book"></i>
+            <span>Sunnah</span>
+        </a>
+        <a href="#" class="nav-item" data-target="quran">
+            <i class="fas fa-quran"></i>
+            <span>Quran</span>
+        </a>
+        <a href="#" class="nav-item" data-target="ayats">
+            <i class="fas fa-ayat"></i>
+            <span>Ayats</span>
+        </a>
+        <a href="#" class="nav-item" data-target="surahs">
+            <i class="fas fa-list"></i>
+            <span>Surahs</span>
+        </a>
+        <a href="#" class="nav-item" data-target="empty">
+            <i class="fas fa-plus"></i>
+            <span>More</span>
+        </a>
+    </div>
+    
+    <script>
+        // Toggle dark mode
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Change icon
+            const icon = themeToggle.querySelector('i');
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+        
+        // Navigation functionality
+        const navItems = document.querySelectorAll('.nav-item');
+        const contents = document.querySelectorAll('.content');
+        
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active class from all
+                navItems.forEach(nav => nav.classList.remove('active'));
+                contents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked
+                item.classList.add('active');
+                const target = item.getAttribute('data-target');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+        
+        // Menu button functionality (can be expanded)
+        document.querySelector('.menu-btn').addEventListener('click', () => {
+            alert('Menu will open here');
+        });
+        
+        // Profile picture click
+        document.querySelector('.profile-pic').addEventListener('click', () => {
+            alert('Profile section will open here');
+        });
+    </script>
+</body>
+</html>
