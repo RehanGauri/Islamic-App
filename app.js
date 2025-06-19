@@ -79,9 +79,15 @@ app.get('/login', (req, res) => {
     res.render('login');
 });
 app.post("/register", async(req, res)=>{
+    try{
+
         const newRegister = new Register(req.body.register)
         await newRegister.save()
         res.redirect("/")
+    }
+    catch(err){
+        console.log(err, "User data not saved");
+    }
 })
 
 
