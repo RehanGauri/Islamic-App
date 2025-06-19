@@ -83,14 +83,15 @@ body {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    /* color: white; */
     font-weight: bold;
     margin-left: 15px;
     cursor: pointer;
+    border: none;
 }
 
 .menu-btn {
@@ -199,4 +200,123 @@ h1 {
 
 ul li{
     margin-left: 10px;
+}
+
+
+/* Login register css */
+.form-container {
+    max-width: 400px;
+    margin: 10px auto 10px;
+    /* margin: auto auto ; */
+    /* margin: auto auto 40px; */
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.form-container h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-box label {
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.form-box input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.form-box input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-btn {
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 15px;
+    color: var(--text-color);
+}
+
+.form-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.google-login {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.google-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.google-btn img {
+    height: 20px;
+    width: 20px;
+}
+
+.google-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.dark-mode .google-btn {
+    background-color: #1e1e1e; /* Same as your --card-bg in dark mode */
+    color: var(--text-color); /* Your golden text */
+    border: 1px solid #444; /* Slightly visible border in dark */
+}
+
+.dark-mode .google-btn:hover {
+    background-color: #2a2a2a; /* Slightly lighter hover */
+}
+
+
+@media (max-width:768px) {
+    .form-container {
+    margin: auto auto;
+}
 }

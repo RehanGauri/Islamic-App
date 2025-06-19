@@ -35,8 +35,3 @@ if (localStorage.getItem('darkMode') === 'true') {
 document.querySelector('.menu-btn')?.addEventListener('click', () => {
     alert('Menu will open here');
 });
-
-// Profile picture click
-document.querySelector('.profile-pic')?.addEventListener('click', () => {
-    alert('Profile section will open here');
-});

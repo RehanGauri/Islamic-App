@@ -1,6 +1,10 @@
 const express = require('express');
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
+const methodOverride = require("method-override")
+const Register = require("./models/register")
+const mongoose = require("mongoose")
+
 
 const app = express();
 
@@ -8,6 +12,9 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.set('layout', 'layout'); // Set default layout
+
+app.use(express.urlencoded({extended: true}))
+app.use(methodOverride("_method"));
 
 // Use express-ejs-layouts
 app.use(expressLayouts);
@@ -20,6 +27,23 @@ app.use((req, res, next) => {
     res.locals.currentPage = req.path.slice(1) || 'sunnah';
     next();
 });
+
+
+// DB
+const MONGO_URL = 'mongodb://127.0.0.1:27017/islamicapp';
+
+main()
+.then(()=>{
+    console.log("Connected to DB");
+})
+.catch((err)=>{
+    console.log(err)
+})
+
+async function main() {
+    await mongoose.connect(MONGO_URL)
+}
+
 
 // Routes
 app.get('/', (req, res) => {
@@ -48,6 +72,19 @@ app.get('/community', (req, res) => {
 app.get('/more2', (req, res) => {
     res.render('more2');
 });
+app.get('/register', (req, res) => {
+    res.render('register');
+});
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+app.post("/register", async(req, res)=>{
+        const newRegister = new Register(req.body.register)
+        await newRegister.save()
+        res.redirect("/")
+})
+
+
 
 // Start server
 const PORT = process.env.PORT || 3000;

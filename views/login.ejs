@@ -1,0 +1,22 @@
+<div class="form-container">
+  <h1>Login</h1>
+  <form action="/login" method="POST" class="form-box">
+    <label for="email">Email</label>
+    <input type="email" name="login[email]" id="email" required placeholder="Enter your email" />
+
+    <label for="password">Password</label>
+    <input type="password" name="login[password]" id="password" required placeholder="Enter your password" />
+
+    <button type="submit" class="form-btn">Login</button>
+  </form>
+
+  <div class="google-login">
+    <p>Or login with</p>
+    <a href="/auth/google" class="google-btn">
+      <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google Icon" />
+      Continue with Google
+    </a>
+  </div>
+
+  <p class="form-footer">Don't have an account? <a href="/register">Register</a></p>
+</div>

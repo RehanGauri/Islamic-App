@@ -1,0 +1,25 @@
+<div class="form-container">
+  <h1>Register</h1>
+  <form action="/register" method="POST" class="form-box">
+    <label for="name">Name</label>
+    <input type="text" name="register[name]" id="name" required placeholder="Enter your Name" />
+
+    <label for="email">Email</label>
+    <input type="email" name="register[email]" id="email" required placeholder="Enter your email" />
+
+    <label for="password">Password</label>
+    <input type="password" name="register[password]" id="password" required placeholder="Enter new Password" />
+
+    <button type="submit" class="form-btn">Register</button>
+  </form>
+
+  <div class="google-login">
+    <p>Or register with</p>
+    <a href="/auth/google" class="google-btn">
+      <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google Icon" />
+      Continue with Google
+    </a>
+  </div>
+
+  <p class="form-footer">Already have an account? <a href="/login">Login</a></p>
+</div>
