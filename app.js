@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
@@ -30,7 +32,14 @@ app.use((req, res, next) => {
 
 
 // DB
-const MONGO_URL = 'mongodb://127.0.0.1:27017/islamicapp';
+// const MONGO_URL = 'mongodb://127.0.0.1:27017/islamicapp';
+const MONGO_URL = process.env.SERVERIP;
+// const MONGO_URL2 = process.env.SERVERIP;
+
+// console.log(MONGO_URL2);
+
+// console.log("KUch", process.env.ID);
+
 
 main()
 .then(()=>{
