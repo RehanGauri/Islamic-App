@@ -56,6 +56,7 @@ async function main() {
 
 // Routes
 app.get('/', (req, res) => {
+    console.log("hi this is billal");
     res.render('sunnah');
 });
 
