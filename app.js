@@ -90,7 +90,7 @@ app.get('/login', (req, res) => {
 });
 app.post("/register", async(req, res)=>{
     try{
-
+console.log("hi this is billal");
         const newRegister = new Register(req.body.register)
         await newRegister.save()
         res.redirect("/")
